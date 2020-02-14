@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-
+const API_URL = process.env.REACT_APP_API_URL;
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,7 @@ class App extends Component {
     if (!this.state.value) {
       alert("Enter A Summoner's Name");
     } else {
-      fetch(`http://localhost:3000/${this.state.value}`).then((res) => res.json()).then((result) => {
+      fetch(`${API_URL}/${this.state.value}`).then((res) => res.json()).then((result) => {
         this.setState({ submit: true, data: result });
       })
     }
